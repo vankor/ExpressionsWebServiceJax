@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ 
+<web-app>
+    <listener>
+        <listener-class>
+                com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>count</servlet-name>
+        <servlet-class>
+        	com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>count</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>  
+		<description> Test Client Servlet</description>  
+		<display-name>Test Client</display-name>  
+		<servlet-name>Test Client</servlet-name>  
+		<servlet-class>client.CountClient</servlet-class>  
+	</servlet>  
+	<servlet-mapping>  
+	<servlet-name>Test Client</servlet-name>  
+	<url-pattern>/testclient</url-pattern>  
+</servlet-mapping>  
+    
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+</web-app>
